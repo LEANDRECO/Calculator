@@ -80,4 +80,39 @@ public class CalculatorTest {
             calculator.divide(5,0);
         });
     }
+
+    @Test
+    @DisplayName("#divide > When the numerator is zero return zero")
+    void divideWhenTheNumeratorIsZeroReturnZero() {
+        int result = calculator.divide(0,2);
+        Assertions.assertEquals(0,result);
+    }
+
+    @Test
+    @DisplayName("#divide > When the divider is positive and the numerator is positive return a positive number")
+    void divideWhenTheDividerIsPositiveAndTheNumeratorIsPositiveReturnAPositiveNumber() {
+        int result = calculator.divide(2, 2);
+        Assertions.assertEquals(1, result);
+    }
+
+    @Test
+    @DisplayName("#divide > When the divider is negative and the numerator is negative return a positive number")
+    void divideWhenTheDividerIsNegativeAndTheNumeratorIsNegativeReturnAPositiveNumber() {
+        int result = calculator.divide(-2, -2);
+        Assertions.assertEquals(1, result);
+    }
+
+    @Test
+    @DisplayName("#divide > When the denominator is negative and the numerator is positive return a negative number")
+    void divideWhenTheDenominatorIsNegativeAndTheNumeratorIsPositiveReturnANegativeNumber() {
+        int result = calculator.divide(-2,2);
+        Assertions.assertEquals(-1,result);
+    }
+
+    @Test
+    @DisplayName("#divide > When the denominator is positive and the numerator is negative return a negative number")
+    void divideWhenTheDenominatorIsPositiveAndTheNumeratorIsNegativeReturnANegativeNumber() {
+        int result = calculator.divide(2,-2);
+        Assertions.assertEquals(-1,result);
+    }
 }
